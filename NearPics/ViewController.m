@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "FlickrManager.h"
-#import "PlacesManager.h"
 
 @interface ViewController ()
 
@@ -20,7 +18,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-
+//    PlacesManager *manager = [PlacesManager sharedInstance];
+//    manager.delegate = self;
+//    [manager getPlacesNearLat:@"13.0810" andLong:@"80.2740"];
+    FlickrManager *manager = [FlickrManager sharedInstance];
+    manager.delegate = self;
+    [manager startLocationUpdate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,4 +33,11 @@
 
 }
 
+#pragma mark - placesmanager delegate method
+-(void)loadedPlacesWithArray:(NSArray *)places{
+    
+}
+- (void)loadedNearestPlaceWithDictionary:(NSDictionary *)picPlaceDic{
+    
+}
 @end

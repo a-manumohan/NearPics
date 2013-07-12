@@ -9,10 +9,21 @@
 
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequest.h"
+#import "Place.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface PlacesManager : NSObject<ASIHTTPRequestDelegate>
+@protocol PlacesManagerDelegate <NSObject>
+
+-(void)loadedPlacesWithArray:(NSArray *)places;
+
+@end
+@interface PlacesManager : NSObject<ASIHTTPRequestDelegate,CLLocationManagerDelegate>{
+    CLLocationManager *locationManager;
+}
 
 + (PlacesManager *)sharedInstance;
+
+@property (nonatomic,assign) id<PlacesManagerDelegate>delegate;
 
 - (void)getPlacesNearLat:(NSString *)lat andLong:(NSString *)lon;
 @end

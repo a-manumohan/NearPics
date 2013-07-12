@@ -8,15 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "ObjectiveFlickr.h"
+#import "PlacesManager.h"
+#import "Venue.h"
+#import "Queue.h"
+#import "Photo.h"
+
 @protocol FlickerManagerDelegate
 
-- (void)loadedNearestPlacesWithDictionary:(NSDictionary *)places;
+- (void)loadedNearestPlaceWithDictionary:(NSDictionary *)picPlaceDic;
 
 @end
-@interface FlickrManager : NSObject<OFFlickrAPIRequestDelegate>
+@interface FlickrManager : NSObject<OFFlickrAPIRequestDelegate,PlacesManagerDelegate>
 @property (nonatomic, assign) id<FlickerManagerDelegate> delegate;
 + (FlickrManager *)sharedInstance;
 
+//start monitoring location
+- (void)startLocationUpdate;
 //get nearest venues
-- (void)getVenuesNearLocation:(NSDictionary *)location;
+- (void)getVenuesNearPlace:(Place *)place;
 @end

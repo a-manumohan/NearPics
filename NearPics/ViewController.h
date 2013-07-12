@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlickrManager.h"
+#import "PlacesManager.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<PlacesManagerDelegate,FlickerManagerDelegate>
 
 @end
