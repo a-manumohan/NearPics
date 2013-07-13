@@ -63,7 +63,6 @@ static PlacesManager *sharedManager = NULL;
 }
 #pragma mark - ASIHttp delegate methods
 - (void)requestFinished:(ASIHTTPRequest *)request{
-    NSLog(@"%@",request.responseString);
     NSArray *places = [self parsePlacesResponse:request.responseString];
     //[self.delegate loadedPlacesWithArray:places];
     [self performSelectorOnMainThread:@selector(callLoadedPlacesWithArray:) withObject:places waitUntilDone:NO];

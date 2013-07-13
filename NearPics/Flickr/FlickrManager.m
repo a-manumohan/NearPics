@@ -83,7 +83,7 @@ static FlickrManager *sharedManager = NULL;
 
 #pragma mark - flickr delegate methods
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didCompleteWithResponse:(NSDictionary *)inResponseDictionary{
-    NSLog(@"%@",inResponseDictionary);
+   // NSLog(@"%@",inResponseDictionary);
     if(inRequest == placeRequest){
         Venue *v = [self parseVenueResponse:inResponseDictionary];
         [venueQueue enqueue:v];
@@ -144,5 +144,19 @@ static FlickrManager *sharedManager = NULL;
 #pragma mark - update view in main thread
 - (void)callViewUpdateMethod:(NSDictionary *)placePicDic{
     [self.delegate loadedNearestPlaceWithDictionary:placePicDic];
+}
+
+#pragma mark - public methods
++ (NSString *)urlOfPhoto:(Photo *)photo ofSize:(kPhotoSize)size{
+	NSString *url;
+	if(size == kSmall){
+		url = @"http://farm%@.staticflickr.com/%@/%@_%@_s.jpg";
+	}else if(size == kMedium){
+		url = @"http://farm%@.staticflickr.com/%@/%@_%@_m.jpg";
+	}else if (size == kLarge){
+		url = @"http://farm%@.staticflickr.com/%@/%@_%@_b.jpg";
+	}
+	url = [NSString stringWithFormat:url,photo.farm,photo.server,photo.photo_id,photo.secret];
+	return url;
 }
 @end

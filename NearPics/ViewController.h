@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "FlickrManager.h"
-#import "PlacesManager.h"
 
-@interface ViewController : UIViewController<PlacesManagerDelegate,FlickerManagerDelegate>
+@interface ViewController : UIViewController<FlickerManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *albumCollection;
 
 @end

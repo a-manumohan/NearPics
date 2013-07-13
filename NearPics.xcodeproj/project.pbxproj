@@ -56,6 +56,12 @@
 		22ADCBC5178D5ABB00FFDA32 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADCBC4178D5ABB00FFDA32 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		22ADCBC8178D5B4400FFDA32 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADCBC7178D5B4400FFDA32 /* MobileCoreServices.framework */; };
 		22ADCBCC178D5E0600FFDA32 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADCBCB178D5E0600FFDA32 /* libz.dylib */; };
+		530F547C17918D6A004975BF /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530F547B17918D6A004975BF /* AlbumCollectionViewCell.m */; };
+		530F547F1791A84E004975BF /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530F547E1791A84E004975BF /* PhotosViewController.m */; };
+		530F54821791B0F1004975BF /* PhotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530F54811791B0F1004975BF /* PhotosCollectionViewCell.m */; };
+		530F54861791B63E004975BF /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 530F54851791B63E004975BF /* ImageCache.m */; };
+		530F54891791C01B004975BF /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530F54881791C01B004975BF /* PhotoView.m */; };
+		530F548B1791C02E004975BF /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 530F548A1791C02E004975BF /* PhotoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +159,17 @@
 		22ADCBC7178D5B4400FFDA32 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		22ADCBC9178D5C1F00FFDA32 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22ADCBCB178D5E0600FFDA32 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		530F547A17918D6A004975BF /* AlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCollectionViewCell.h; sourceTree = "<group>"; };
+		530F547B17918D6A004975BF /* AlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCollectionViewCell.m; sourceTree = "<group>"; };
+		530F547D1791A84E004975BF /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
+		530F547E1791A84E004975BF /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
+		530F54801791B0F1004975BF /* PhotosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCollectionViewCell.h; sourceTree = "<group>"; };
+		530F54811791B0F1004975BF /* PhotosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCollectionViewCell.m; sourceTree = "<group>"; };
+		530F54841791B63E004975BF /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		530F54851791B63E004975BF /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
+		530F54871791C01B004975BF /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
+		530F54881791C01B004975BF /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
+		530F548A1791C02E004975BF /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,13 +248,11 @@
 		22ADC99D178D1AA800FFDA32 = {
 			isa = PBXGroup;
 			children = (
+				534E6249179172B70082BB93 /* Libs */,
 				220F6346178FD51F00D89FF0 /* CoreLocation.framework */,
-				220F6320178FCD3400D89FF0 /* SBJSON */,
 				22ADCBCB178D5E0600FFDA32 /* libz.dylib */,
 				22ADCBC9178D5C1F00FFDA32 /* Security.framework */,
 				22ADCBC7178D5B4400FFDA32 /* MobileCoreServices.framework */,
-				22ADCBA7178D596E00FFDA32 /* ASIHTTPRequest */,
-				22ADCADB178D2F6A00FFDA32 /* ObjectiveFlickr */,
 				22ADCACB178D2D8D00FFDA32 /* SystemConfiguration.framework */,
 				22ADC9D8178D242300FFDA32 /* CFNetwork.framework */,
 				22ADC9AF178D1AA800FFDA32 /* NearPics */,
@@ -267,6 +282,8 @@
 		22ADC9AF178D1AA800FFDA32 /* NearPics */ = {
 			isa = PBXGroup;
 			children = (
+				530F54831791B5DE004975BF /* cache */,
+				530F547917918D4F004975BF /* views */,
 				220F634B178FEC2D00D89FF0 /* Util */,
 				220F6319178FCB6200D89FF0 /* Model */,
 				22ADCB50178D41FD00FFDA32 /* Google */,
@@ -276,6 +293,8 @@
 				22ADC9C1178D1AA800FFDA32 /* MainStoryboard.storyboard */,
 				22ADC9C4178D1AA800FFDA32 /* ViewController.h */,
 				22ADC9C5178D1AA800FFDA32 /* ViewController.m */,
+				530F547D1791A84E004975BF /* PhotosViewController.h */,
+				530F547E1791A84E004975BF /* PhotosViewController.m */,
 				22ADC9B0178D1AA800FFDA32 /* Supporting Files */,
 			);
 			path = NearPics;
@@ -371,6 +390,39 @@
 			path = ASIHTTPRequest;
 			sourceTree = "<group>";
 		};
+		530F547917918D4F004975BF /* views */ = {
+			isa = PBXGroup;
+			children = (
+				530F547A17918D6A004975BF /* AlbumCollectionViewCell.h */,
+				530F547B17918D6A004975BF /* AlbumCollectionViewCell.m */,
+				530F54801791B0F1004975BF /* PhotosCollectionViewCell.h */,
+				530F54811791B0F1004975BF /* PhotosCollectionViewCell.m */,
+				530F54871791C01B004975BF /* PhotoView.h */,
+				530F54881791C01B004975BF /* PhotoView.m */,
+				530F548A1791C02E004975BF /* PhotoView.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		530F54831791B5DE004975BF /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				530F54841791B63E004975BF /* ImageCache.h */,
+				530F54851791B63E004975BF /* ImageCache.m */,
+			);
+			name = cache;
+			sourceTree = "<group>";
+		};
+		534E6249179172B70082BB93 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				22ADCADB178D2F6A00FFDA32 /* ObjectiveFlickr */,
+				22ADCBA7178D596E00FFDA32 /* ASIHTTPRequest */,
+				220F6320178FCD3400D89FF0 /* SBJSON */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,6 +480,7 @@
 				22ADC9BE178D1AA800FFDA32 /* Default@2x.png in Resources */,
 				22ADC9C0178D1AA800FFDA32 /* Default-568h@2x.png in Resources */,
 				22ADC9C3178D1AA800FFDA32 /* MainStoryboard.storyboard in Resources */,
+				530F548B1791C02E004975BF /* PhotoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +527,11 @@
 				220F631F178FCB8800D89FF0 /* Place.m in Sources */,
 				220F634A178FDB3D00D89FF0 /* Venue.m in Sources */,
 				220F634E178FEC5A00D89FF0 /* Queue.m in Sources */,
+				530F547C17918D6A004975BF /* AlbumCollectionViewCell.m in Sources */,
+				530F547F1791A84E004975BF /* PhotosViewController.m in Sources */,
+				530F54821791B0F1004975BF /* PhotosCollectionViewCell.m in Sources */,
+				530F54861791B63E004975BF /* ImageCache.m in Sources */,
+				530F54891791C01B004975BF /* PhotoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

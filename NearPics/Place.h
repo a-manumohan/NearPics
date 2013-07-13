@@ -10,9 +10,9 @@
 
 @interface Place : NSObject
 
-@property (nonatomic,strong) NSString *latitude;
-@property (nonatomic,strong) NSString *longitude;
-@property (nonatomic,strong) NSString *name;
-@property (nonatomic,strong) NSString *address;
+@property (nonatomic,retain) NSString *latitude;
+@property (nonatomic,retain) NSString *longitude;
+@property (nonatomic,retain) NSString *name;
+@property (nonatomic,retain) NSString *address;
 
 @end

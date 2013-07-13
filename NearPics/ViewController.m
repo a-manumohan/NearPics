@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "AlbumCollectionViewCell.h"
+#import "PhotosViewController.h"
 
-@interface ViewController ()
+@interface ViewController (){
+	NSMutableArray *picPlaceArray;
+}
 
 @end
 
@@ -18,9 +22,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    PlacesManager *manager = [PlacesManager sharedInstance];
-//    manager.delegate = self;
-//    [manager getPlacesNearLat:@"13.0810" andLong:@"80.2740"];
+	self.title = @"NearPics";
     FlickrManager *manager = [FlickrManager sharedInstance];
     manager.delegate = self;
     [manager startLocationUpdate];
@@ -33,11 +35,41 @@
 
 }
 
-#pragma mark - placesmanager delegate method
--(void)loadedPlacesWithArray:(NSArray *)places{
-    
-}
+
 - (void)loadedNearestPlaceWithDictionary:(NSDictionary *)picPlaceDic{
-    
+    if(picPlaceArray == nil){
+		picPlaceArray = [[NSMutableArray alloc] init];
+	}
+	[picPlaceArray addObject:picPlaceDic];
+	[self performSelectorOnMainThread:@selector(addNewCellToCollectionWithDictionary:) withObject:picPlaceDic waitUntilDone:YES];
+}
+- (void)addNewCellToCollectionWithDictionary:(NSDictionary *)picPlaceDic{
+	int index = [picPlaceArray count];
+	NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:index-1 inSection:0]];
+	[self.albumCollection insertItemsAtIndexPaths:indexPaths];
+}
+#pragma mark - collection view delegate methods
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+	if (picPlaceArray == nil) {
+		return 0;
+	}
+	return [picPlaceArray count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+	AlbumCollectionViewCell *cell  = [collectionView dequeueReusableCellWithReuseIdentifier:@"albumCell"forIndexPath:indexPath];
+
+	[cell setDataToView:[picPlaceArray objectAtIndex:indexPath.row]];
+	return cell;
+}
+
+
+#pragma mark - segue methods
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	if([segue.identifier isEqualToString:@"showPicsSegue"]){
+		PhotosViewController *photosViewController = segue.destinationViewController;
+		NSIndexPath *indexPath = [[self.albumCollection indexPathsForSelectedItems] objectAtIndex:0];
+		photosViewController.picPlaceDictionary = [picPlaceArray objectAtIndex:indexPath.row];
+	}
 }
 @end

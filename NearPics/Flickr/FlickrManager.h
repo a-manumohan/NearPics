@@ -12,6 +12,11 @@
 #import "Venue.h"
 #import "Queue.h"
 #import "Photo.h"
+typedef enum {
+	kSmall,
+	kMedium,
+	kLarge
+}kPhotoSize;
 
 @protocol FlickerManagerDelegate
 
@@ -24,6 +29,7 @@
 
 //start monitoring location
 - (void)startLocationUpdate;
-//get nearest venues
-- (void)getVenuesNearPlace:(Place *)place;
+
+//get url of the image from object
++ (NSString *)urlOfPhoto:(Photo *)photo ofSize:(kPhotoSize)size;
 @end

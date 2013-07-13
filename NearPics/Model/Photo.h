@@ -10,10 +10,10 @@
 
 @interface Photo : NSObject
 
-@property (nonatomic,strong) NSString *farm;
-@property (nonatomic,strong) NSString *photo_id;
-@property (nonatomic,strong) NSString *server;
-@property (nonatomic,strong) NSString *secret;
-@property (nonatomic,strong) NSString *title;
+@property (nonatomic,retain) NSString *farm;
+@property (nonatomic,retain) NSString *photo_id;
+@property (nonatomic,retain) NSString *server;
+@property (nonatomic,retain) NSString *secret;
+@property (nonatomic,retain) NSString *title;
 
 @end

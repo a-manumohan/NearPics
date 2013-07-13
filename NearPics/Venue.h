@@ -10,7 +10,7 @@
 
 @interface Venue : NSObject
 
-@property (nonatomic,strong) NSString *woeid;
-@property (nonatomic,strong) NSString *name;
+@property (nonatomic,retain) NSString *woeid;
+@property (nonatomic,retain) NSString *name;
 
 @end
