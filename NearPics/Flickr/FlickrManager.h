@@ -29,6 +29,7 @@ typedef enum {
 
 //start monitoring location
 - (void)startLocationUpdate;
+- (void)clearVenues;
 
 //get url of the image from object
 + (NSString *)urlOfPhoto:(Photo *)photo ofSize:(kPhotoSize)size;

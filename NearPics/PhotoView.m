@@ -40,9 +40,9 @@
 	dispatch_queue_t mainqueue = dispatch_get_main_queue();
 	dispatch_queue_t imagequeue = dispatch_queue_create("com.nearpic.imagephotoqueue", NULL);
 	imageCache = [ImageCache sharedInstance];
-	
+	self.photoLabel.text = photo.title;
 	NSString *photoUrl = [FlickrManager urlOfPhoto:photo ofSize:kLarge];
-	NSLog(@"%@",photoUrl);
+	
 	NSData *imageData = [imageCache getImage:photoUrl];
 	activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 	if(imageData){

@@ -21,8 +21,7 @@ static FlickrManager *sharedManager = NULL;
     Queue *placesQueue;
     Queue *venueQueue;
     PlacesManager *placesManager;
-    NSMutableArray *nearPlaces;
-    NSMutableArray *nearVenues;
+    NSMutableArray *venueArray;
     BOOL loading;
     BOOL photoLoading;
     
@@ -36,8 +35,7 @@ static FlickrManager *sharedManager = NULL;
     self = [super init];
     if(self){
         flickerContext = [[OFFlickrAPIContext alloc] initWithAPIKey:API_KEY sharedSecret:API_SECRET];
-        nearPlaces = [[NSMutableArray alloc] init];
-        nearVenues = [[NSMutableArray alloc] init];
+        venueArray = [[NSMutableArray alloc] init];
         placesQueue = [[Queue alloc] init];
         venueQueue = [[Queue alloc] init];
     }
@@ -53,6 +51,9 @@ static FlickrManager *sharedManager = NULL;
 - (void)startLocationUpdate{
     placesManager = [PlacesManager sharedInstance];
     placesManager.delegate = self;
+}
+- (void)clearVenues{
+	[venueArray removeAllObjects];
 }
 - (void)getVenuesNearby{
     Place *place = [placesQueue dequeue];
@@ -86,7 +87,11 @@ static FlickrManager *sharedManager = NULL;
    // NSLog(@"%@",inResponseDictionary);
     if(inRequest == placeRequest){
         Venue *v = [self parseVenueResponse:inResponseDictionary];
-        [venueQueue enqueue:v];
+		if(![venueArray containsObject:v.woeid]){
+			[venueQueue enqueue:v];
+			[venueArray addObject:v.woeid];
+		}
+        
         if(!photoLoading){
             [self getPhotosInVenueQueue];
         }
@@ -114,7 +119,6 @@ static FlickrManager *sharedManager = NULL;
     if(!loading){
         [self getVenuesNearby];
     }
-    [nearPlaces addObjectsFromArray:places];
 }
 
 #pragma mark - venue parser method

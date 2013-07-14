@@ -17,5 +17,6 @@
 - (void)loadImageForPhoto:(Photo *)photo;
 - (IBAction)closeView:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
+@property (weak, nonatomic) IBOutlet UILabel *photoLabel;
 
 @end
