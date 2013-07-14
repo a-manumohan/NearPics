@@ -38,7 +38,7 @@
 
 - (void)loadThumbNailForPhoto:(Photo *)photo{
 	dispatch_queue_t mainqueue = dispatch_get_main_queue();
-	dispatch_queue_t imagequeue = dispatch_queue_create("com.nearpic.thumbnailqueue", NULL);
+	dispatch_queue_t imagequeue = dispatch_queue_create("com.nearpic.photoiconqueue", NULL);
 	imageCache = [ImageCache sharedInstance];
 	
 	NSString *photoUrl = [FlickrManager urlOfPhoto:photo ofSize:kMedium];

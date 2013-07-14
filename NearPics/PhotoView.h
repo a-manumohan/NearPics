@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Photo.h"
+#import "FlickrManager.h"
 
 @interface PhotoView : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+
+
+- (void)loadImageForPhoto:(Photo *)photo;
+- (IBAction)closeView:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end

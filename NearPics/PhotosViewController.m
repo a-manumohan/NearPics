@@ -10,6 +10,7 @@
 #import "Photo.h"
 #import "Venue.h"
 #import "PhotosCollectionViewCell.h"
+#import "PhotoView.h"
 
 @interface PhotosViewController (){
 	NSArray *photosArray;
@@ -57,5 +58,16 @@
 	
 	[cell loadThumbNailForPhoto:[photosArray objectAtIndex:indexPath.row]];
 	return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+	Photo *photo = [photosArray objectAtIndex:indexPath.row];
+	[self showPhotoViewWithPhoto:photo];
+	
+}
+- (void)showPhotoViewWithPhoto:(Photo *)photo{
+	PhotoView *photoView = [[[NSBundle mainBundle] loadNibNamed:@"PhotoView" owner:self options:nil] objectAtIndex:0];
+	[self.view addSubview:photoView];
+	[photoView loadImageForPhoto:photo];
 }
 @end

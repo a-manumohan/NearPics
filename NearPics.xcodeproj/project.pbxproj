@@ -62,6 +62,7 @@
 		530F54861791B63E004975BF /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 530F54851791B63E004975BF /* ImageCache.m */; };
 		530F54891791C01B004975BF /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530F54881791C01B004975BF /* PhotoView.m */; };
 		530F548B1791C02E004975BF /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 530F548A1791C02E004975BF /* PhotoView.xib */; };
+		5343B75717929B25002D3B0A /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5343B75617929B25002D3B0A /* close.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,7 @@
 		530F54871791C01B004975BF /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
 		530F54881791C01B004975BF /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 		530F548A1791C02E004975BF /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
+		5343B75617929B25002D3B0A /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 		22ADC9AF178D1AA800FFDA32 /* NearPics */ = {
 			isa = PBXGroup;
 			children = (
+				5343B755179299D3002D3B0A /* images */,
 				530F54831791B5DE004975BF /* cache */,
 				530F547917918D4F004975BF /* views */,
 				220F634B178FEC2D00D89FF0 /* Util */,
@@ -413,6 +416,14 @@
 			name = cache;
 			sourceTree = "<group>";
 		};
+		5343B755179299D3002D3B0A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				5343B75617929B25002D3B0A /* close.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		534E6249179172B70082BB93 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +492,7 @@
 				22ADC9C0178D1AA800FFDA32 /* Default-568h@2x.png in Resources */,
 				22ADC9C3178D1AA800FFDA32 /* MainStoryboard.storyboard in Resources */,
 				530F548B1791C02E004975BF /* PhotoView.xib in Resources */,
+				5343B75717929B25002D3B0A /* close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

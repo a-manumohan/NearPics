@@ -55,8 +55,8 @@ static PlacesManager *sharedManager = NULL;
         place.name = [placeJson valueForKey:@"name"];
         place.address = [placeJson valueForKey:@"formatted_address"];
         NSDictionary *location = [[placeJson valueForKey:@"geometry"] valueForKey:@"location"];
-        place.latitude = [NSString stringWithFormat:@"%@",[location valueForKey:@"lat"] ];
-        place.longitude = [NSString stringWithFormat:@"%@",[location valueForKey:@"lng"] ];
+        place.latitude = [NSString stringWithFormat:@"%@",[location valueForKey:@"lat"]];
+        place.longitude = [NSString stringWithFormat:@"%@",[location valueForKey:@"lng"]];
         [places addObject:place];
     }
     return [NSArray arrayWithArray:places];
