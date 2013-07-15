@@ -42,6 +42,7 @@ static PlacesManager *sharedManager = NULL;
                              PLACES_URL,lat,lon,@"1000",PLACES_API_KEY];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:completeUrl]];
     request.delegate = self;
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [request startAsynchronous];
 }
 #pragma mark - response parser methods
@@ -67,10 +68,11 @@ static PlacesManager *sharedManager = NULL;
 	//NSLog(@"%@",request.responseString);
     //[self.delegate loadedPlacesWithArray:places];
     [self performSelectorOnMainThread:@selector(callLoadedPlacesWithArray:) withObject:places waitUntilDone:NO];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
 }
 - (void)requestFailed:(ASIHTTPRequest *)request{
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 - (void)callLoadedPlacesWithArray:(NSArray *)array{
     [self.delegate loadedPlacesWithArray:array];

@@ -48,6 +48,7 @@
 	if(imageData){
 		[self setPhotoDataToView:imageData];
 	}else{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		activityView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
 		[self addSubview:activityView];
 		[activityView startAnimating];
@@ -58,6 +59,7 @@
 				[activityView stopAnimating];
 				[activityView removeFromSuperview];
 				[self setPhotoDataToView:imageData];
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 			});
 		});
 	}

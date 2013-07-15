@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NearPics/PlacesManager.m"
-         timestampString = "395309858.410799"
+         timestampString = "395570617.445158"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
          landmarkName = "-locationManager:didUpdateLocations:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NearPics/Flickr/FlickrManager.m"
-         timestampString = "395313839.452302"
+         timestampString = "395570617.445158"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
-         landmarkName = "-parseVenueResponse:"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-loadedPlacesWithArray:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NearPics/Flickr/FlickrManager.m"
-         timestampString = "395313839.452302"
+         timestampString = "395570617.445158"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
          landmarkName = "-flickrAPIRequest:didCompleteWithResponse:"
          landmarkType = "5">
       </FileBreakpoint>

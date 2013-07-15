@@ -77,17 +77,18 @@
 - (void)loadPhotoThumbnails{
 	dispatch_queue_t mainqueue = dispatch_get_main_queue();
 	dispatch_queue_t imagequeue = dispatch_queue_create("com.nearpic.thumbnailqueue", NULL);
-
 	if (photoUrl1) {
-		NSData *imageData = [imageCache getImage:photoUrl1];
+        NSData *imageData = [imageCache getImage:photoUrl1];
 		if (imageData) {
 			[self.photo1 setImage:[UIImage imageWithData:imageData]];
 		}else{
-			dispatch_async(imagequeue, ^{
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            dispatch_async(imagequeue, ^{
 				NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl1]];
 				[imageCache storeImage:imageData withUrl:photoUrl1];
 				dispatch_async(mainqueue, ^{
 					[self.photo1 setImage:[UIImage imageWithData:imageData]];
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 				});
 			});
 		}
@@ -97,11 +98,13 @@
 		if (imageData) {
 			[self.photo2 setImage:[UIImage imageWithData:imageData]];
 		}else{
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 			dispatch_async(imagequeue, ^{
 				NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl2]];
 				[imageCache storeImage:imageData withUrl:photoUrl2];
 				dispatch_async(mainqueue, ^{
 					[self.photo2 setImage:[UIImage imageWithData:imageData]];
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 				});
 			});
 		}
@@ -111,11 +114,13 @@
 		if (imageData) {
 			[self.photo3 setImage:[UIImage imageWithData:imageData]];
 		}else{
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 			dispatch_async(imagequeue, ^{
 				NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl3]];
 				[imageCache storeImage:imageData withUrl:photoUrl3];
 				dispatch_async(mainqueue, ^{
 					[self.photo3 setImage:[UIImage imageWithData:imageData]];
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 				});
 			});
 		}
@@ -125,11 +130,13 @@
 		if (imageData) {
 			[self.photo4 setImage:[UIImage imageWithData:imageData]];
 		}else{
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 			dispatch_async(imagequeue, ^{
 				NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl4]];
 				[imageCache storeImage:imageData withUrl:photoUrl4];
 				dispatch_async(mainqueue, ^{
 					[self.photo4 setImage:[UIImage imageWithData:imageData]];
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 				});
 			});
 		}

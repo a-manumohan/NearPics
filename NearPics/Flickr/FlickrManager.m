@@ -62,7 +62,7 @@ static FlickrManager *sharedManager = NULL;
         loading = NO;
         return;
     }
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     placeRequest = [[OFFlickrAPIRequest alloc] initWithAPIContext:flickerContext];
     [placeRequest setDelegate:self];
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:place.latitude,@"lat",place.longitude,@"lon", nil];
@@ -76,6 +76,7 @@ static FlickrManager *sharedManager = NULL;
         photoLoading = NO;
         return;
     }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     photoRequest = [[OFFlickrAPIRequest alloc] initWithAPIContext:flickerContext];
     [photoRequest setDelegate:self];
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:venue.woeid,@"woe_id", nil];
@@ -85,6 +86,7 @@ static FlickrManager *sharedManager = NULL;
 #pragma mark - flickr delegate methods
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didCompleteWithResponse:(NSDictionary *)inResponseDictionary{
    // NSLog(@"%@",inResponseDictionary);
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     if(inRequest == placeRequest){
         Venue *v = [self parseVenueResponse:inResponseDictionary];
 		if(![venueArray containsObject:v.woeid]){
@@ -106,9 +108,11 @@ static FlickrManager *sharedManager = NULL;
 }
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didFailWithError:(NSError *)inError{
      NSLog(@"%@",inError);
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest imageUploadSentBytes:(NSUInteger)inSentBytes totalBytes:(NSUInteger)inTotalBytes{
      NSLog(@"%lu",(unsigned long)inTotalBytes);
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 #pragma mark - placesmanger delegate methods

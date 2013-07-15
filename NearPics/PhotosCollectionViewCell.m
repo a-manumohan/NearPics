@@ -46,11 +46,13 @@
 	if(imageData){
 		self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
 	}else{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		dispatch_async(imagequeue, ^{
 			NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl]];
 			[imageCache storeImage:imageData withUrl:photoUrl];
 			dispatch_async(mainqueue, ^{
 				self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 			});
 		});
 	}
