@@ -25,5 +25,4 @@
 
 @property (nonatomic,assign) id<PlacesManagerDelegate>delegate;
 
-- (void)getPlacesNearLat:(NSString *)lat andLong:(NSString *)lon;
 @end

@@ -24,6 +24,7 @@
 		220F6347178FD51F00D89FF0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220F6346178FD51F00D89FF0 /* CoreLocation.framework */; };
 		220F634A178FDB3D00D89FF0 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 220F6349178FDB3D00D89FF0 /* Venue.m */; };
 		220F634E178FEC5A00D89FF0 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 220F634D178FEC5A00D89FF0 /* Queue.m */; };
+		221F22A417950B9400500053 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 221F22A317950B9400500053 /* reload.png */; };
 		22ADC9AA178D1AA800FFDA32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADC9A9178D1AA800FFDA32 /* UIKit.framework */; };
 		22ADC9AC178D1AA800FFDA32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADC9AB178D1AA800FFDA32 /* Foundation.framework */; };
 		22ADC9AE178D1AA800FFDA32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADC9AD178D1AA800FFDA32 /* CoreGraphics.framework */; };
@@ -100,6 +101,7 @@
 		220F6349178FDB3D00D89FF0 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		220F634C178FEC5A00D89FF0 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = Util/Queue.h; sourceTree = "<group>"; };
 		220F634D178FEC5A00D89FF0 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = Util/Queue.m; sourceTree = "<group>"; };
+		221F22A317950B9400500053 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
 		22ADC9A6178D1AA800FFDA32 /* NearPics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearPics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22ADC9A9178D1AA800FFDA32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22ADC9AB178D1AA800FFDA32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -419,6 +421,7 @@
 		5343B755179299D3002D3B0A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				221F22A317950B9400500053 /* reload.png */,
 				5343B75617929B25002D3B0A /* close.png */,
 			);
 			name = images;
@@ -493,6 +496,7 @@
 				22ADC9C3178D1AA800FFDA32 /* MainStoryboard.storyboard in Resources */,
 				530F548B1791C02E004975BF /* PhotoView.xib in Resources */,
 				5343B75717929B25002D3B0A /* close.png in Resources */,
+				221F22A417950B9400500053 /* reload.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +585,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -596,6 +601,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -612,6 +619,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -620,6 +628,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

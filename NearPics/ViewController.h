@@ -12,4 +12,5 @@
 @interface ViewController : UIViewController<FlickerManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *albumCollection;
 
+- (IBAction)reloadScreen:(id)sender;
 @end

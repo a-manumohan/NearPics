@@ -13,6 +13,7 @@ static PlacesManager *sharedManager = NULL;
 
 @interface PlacesManager(){
     CLLocation *lastLocation;
+    UIAlertView *limitAlert;
 }
 
 @end
@@ -26,6 +27,7 @@ static PlacesManager *sharedManager = NULL;
         locationManager.distanceFilter = kCLDistanceFilterNone;
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
         [locationManager startUpdatingLocation];
+       
     }
     return self;
 }
@@ -49,6 +51,15 @@ static PlacesManager *sharedManager = NULL;
 - (NSArray *)parsePlacesResponse:(NSString *)response{
     SBJsonParser *parser = [[SBJsonParser alloc] init];
     NSDictionary *placesResponse = [parser objectWithString:response];
+    NSString *status = [placesResponse objectForKey:@"status"];
+    if([status isEqualToString:@"OVER_QUERY_LIMIT"]){
+        if([limitAlert isVisible]){
+            return nil;
+        }
+        limitAlert = [[UIAlertView alloc] initWithTitle:@"Limit Reached" message:@"Google places query limit reached. Please try after sometime..." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [limitAlert show];
+        return nil;
+    }
     NSArray *placesJson = [placesResponse objectForKey:@"results"];
     NSMutableArray *places = [[NSMutableArray alloc] init];
     for(NSDictionary *placeJson in placesJson){
@@ -65,7 +76,7 @@ static PlacesManager *sharedManager = NULL;
 #pragma mark - ASIHttp delegate methods
 - (void)requestFinished:(ASIHTTPRequest *)request{
     NSArray *places = [self parsePlacesResponse:request.responseString];
-	//NSLog(@"%@",request.responseString);
+	NSLog(@"%@",request.responseString);
     //[self.delegate loadedPlacesWithArray:places];
     [self performSelectorOnMainThread:@selector(callLoadedPlacesWithArray:) withObject:places waitUntilDone:NO];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -85,6 +96,7 @@ static PlacesManager *sharedManager = NULL;
     if(lastLocation != nil){
         CLLocationDistance dist = [lastLocation distanceFromLocation:location];
         if(dist < 100){
+            lastLocation = location;
             return;
         }
     }else{
@@ -94,4 +106,5 @@ static PlacesManager *sharedManager = NULL;
     NSString *lon = [NSString stringWithFormat:@"%f",location.coordinate.longitude];
     [self getPlacesNearLat:lat andLong:lon];
 }
+
 @end

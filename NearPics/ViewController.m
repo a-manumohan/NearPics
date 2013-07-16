@@ -12,6 +12,7 @@
 
 @interface ViewController (){
 	NSMutableArray *picPlaceArray;
+    FlickrManager *manager;
 }
 
 @end
@@ -23,7 +24,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	self.title = @"NearPics";
-    FlickrManager *manager = [FlickrManager sharedInstance];
+    manager = [FlickrManager sharedInstance];
     manager.delegate = self;
     [manager startLocationUpdate];
 }
@@ -71,5 +72,9 @@
 		NSIndexPath *indexPath = [[self.albumCollection indexPathsForSelectedItems] objectAtIndex:0];
 		photosViewController.picPlaceDictionary = [picPlaceArray objectAtIndex:indexPath.row];
 	}
+}
+- (IBAction)reloadScreen:(id)sender {
+    [picPlaceArray removeAllObjects];
+    [self.albumCollection reloadData];
 }
 @end
